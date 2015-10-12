@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Become a Hero</title>
+    <meta charset=utf-8>
+
+    <!-- Liens vers les feuilles de style -->
+    <style>
+
+        /**********
+         * ETC... *
+         **********/
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        html {
+            background: url(http://mancap.shost.ca/oapdn/images/background.jpg) no-repeat center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+
+        body {
+            color: rgba(255,255,255,.6);
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1em;
+            font-weight: 100;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        /**************
+         * Navigation *
+         **************/
+        nav {
+
+            width: 100%;
+            height: 50px;
+            background: url(http://mancap.shost.ca/oapdn/images/backtop_R.png) no-repeat right,
+            url(http://mancap.shost.ca/oapdn/images/backtop_L.png) no-repeat left,
+            url(http://mancap.shost.ca/oapdn/images/backtop.jpg) no-repeat center;
+        }
+
+        /*********
+         * Jumbo *
+         *********/
+        #jumbo {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 90vh;
+        }
+
+        #begins{
+            background: url(http://mancap.shost.ca/oapdn/images/Begins.png);
+            width: 523px;
+            height: 100px;
+            text-align: center;
+        }
+
+        #begins a img{
+            margin-top: 18px;
+        }
+
+        #begins a img:hover{
+            background: url(http://mancap.shost.ca/oapdn/images/light.png);
+        }
+
+        .return{
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+
+    </style>
+
+    <!-- Polices  -->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+
+</nav>
+
+
+<!-- JUMBO -->
+<div id="jumbo">
+    <img src="http://mancap.shost.ca/oapdn/images/BaH.png">
+    <div id="begins">
+        <a href="{{ path('site_homepage') }}"><img src="http://mancap.shost.ca/oapdn/images/BeginsText.png"></a>
+    </div>
+</div>
+
+</body>
+
+</html>

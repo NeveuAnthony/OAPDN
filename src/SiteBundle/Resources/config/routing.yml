@@ -1,0 +1,12 @@
+site_portal:
+    path:     /hello
+    defaults: { _controller: SiteBundle:Default:portal }
+
+site_homepage:
+    path:     /index
+    defaults: { _controller: SiteBundle:Default:index }
+
+site_scenario_view:
+    path: /scenario/{id}
+    defaults: { _controller: SiteBundle:Default:view }
+
