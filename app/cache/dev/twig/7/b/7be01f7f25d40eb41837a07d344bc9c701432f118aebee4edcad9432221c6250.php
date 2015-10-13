@@ -15,14 +15,14 @@ class __TwigTemplate_d9dc184f7b3307a28eb58ae6e7f3c3790507037b8aade30aeb7a74a757b
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_b2070a73beee22e8ef00e1a2b548ac0a38e13b0b7aba7720f6ea474197c49b94 = $this->env->getExtension("native_profiler");
-        $__internal_b2070a73beee22e8ef00e1a2b548ac0a38e13b0b7aba7720f6ea474197c49b94->enter($__internal_b2070a73beee22e8ef00e1a2b548ac0a38e13b0b7aba7720f6ea474197c49b94_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "SiteBundle:Default:view.html.twig"));
+        $__internal_5781a43e478b5946830c352428b4cdccca6c8cb1d7f8a104c0b19f6412334c93 = $this->env->getExtension("native_profiler");
+        $__internal_5781a43e478b5946830c352428b4cdccca6c8cb1d7f8a104c0b19f6412334c93->enter($__internal_5781a43e478b5946830c352428b4cdccca6c8cb1d7f8a104c0b19f6412334c93_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "SiteBundle:Default:view.html.twig"));
 
         // line 1
         echo "<p>
 ";
         // line 2
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["scenario"]) ? $context["scenario"] : $this->getContext($context, "scenario")), "id", array()), "html", null, true);
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["scenario"]) ? $context["scenario"] : $this->getContext($context, "scenario")), "pageNumber", array()), "html", null, true);
         echo "
 <br/>
 ";
@@ -35,18 +35,28 @@ class __TwigTemplate_d9dc184f7b3307a28eb58ae6e7f3c3790507037b8aade30aeb7a74a757b
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["scenario"]) ? $context["scenario"] : $this->getContext($context, "scenario")), "content", array()), "html", null, true);
         echo "
 <br/>
-";
+<a href=\"";
         // line 8
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("site_scenario_view", array("pageNumber" => $this->getAttribute((isset($context["scenario"]) ? $context["scenario"] : $this->getContext($context, "scenario")), "choice1", array()))), "html", null, true);
+        echo "\">Lien</a>
+";
+        // line 9
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["scenario"]) ? $context["scenario"] : $this->getContext($context, "scenario")), "choice1", array()), "html", null, true);
         echo "
 <br/>
 ";
-        // line 10
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["scenario"]) ? $context["scenario"] : $this->getContext($context, "scenario")), "choice2", array()), "html", null, true);
-        echo "
-</p>";
+        // line 11
+        if ( !(null === $this->getAttribute((isset($context["scenario"]) ? $context["scenario"] : $this->getContext($context, "scenario")), "choice2", array()))) {
+            // line 12
+            echo "\t";
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["scenario"]) ? $context["scenario"] : $this->getContext($context, "scenario")), "choice2", array()), "html", null, true);
+            echo "
+";
+        }
+        // line 14
+        echo "</p>";
         
-        $__internal_b2070a73beee22e8ef00e1a2b548ac0a38e13b0b7aba7720f6ea474197c49b94->leave($__internal_b2070a73beee22e8ef00e1a2b548ac0a38e13b0b7aba7720f6ea474197c49b94_prof);
+        $__internal_5781a43e478b5946830c352428b4cdccca6c8cb1d7f8a104c0b19f6412334c93->leave($__internal_5781a43e478b5946830c352428b4cdccca6c8cb1d7f8a104c0b19f6412334c93_prof);
 
     }
 
@@ -62,17 +72,20 @@ class __TwigTemplate_d9dc184f7b3307a28eb58ae6e7f3c3790507037b8aade30aeb7a74a757b
 
     public function getDebugInfo()
     {
-        return array (  45 => 10,  40 => 8,  35 => 6,  30 => 4,  25 => 2,  22 => 1,);
+        return array (  57 => 14,  51 => 12,  49 => 11,  44 => 9,  40 => 8,  35 => 6,  30 => 4,  25 => 2,  22 => 1,);
     }
 }
 /* <p>*/
-/* {{ scenario.id }}*/
+/* {{ scenario.pageNumber }}*/
 /* <br/>*/
 /* {{ scenario.title }}*/
 /* <br/>*/
 /* {{ scenario.content }}*/
 /* <br/>*/
+/* <a href="{{ path('site_scenario_view', {'pageNumber': scenario.choice1}) }}">Lien</a>*/
 /* {{ scenario.choice1 }}*/
 /* <br/>*/
-/* {{ scenario.choice2 }}*/
+/* {% if scenario.choice2 is not null%}*/
+/* 	{{ scenario.choice2 }}*/
+/* {% endif %}*/
 /* </p>*/

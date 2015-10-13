@@ -29,6 +29,13 @@ class Scenario
     private $title;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="pageNumber", type="integer", unique=true)
+     */
+    private $pageNumber;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="content", type="text")
@@ -155,5 +162,28 @@ class Scenario
     {
         return $this->choice2;
     }
-}
 
+    /**
+     * Set pageNumber
+     *
+     * @param integer $pageNumber
+     *
+     * @return Scenario
+     */
+    public function setPageNumber($pageNumber)
+    {
+        $this->pageNumber = $pageNumber;
+    
+        return $this;
+    }
+
+    /**
+     * Get pageNumber
+     *
+     * @return integer
+     */
+    public function getPageNumber()
+    {
+        return $this->pageNumber;
+    }
+}

@@ -138,7 +138,7 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         }
 
         // site_scenario_view
-        if (0 === strpos($pathinfo, '/scenario') && preg_match('#^/scenario/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+        if (0 === strpos($pathinfo, '/scenario') && preg_match('#^/scenario/(?P<pageNumber>[^/]++)$#s', $pathinfo, $matches)) {
             return $this->mergeDefaults(array_replace($matches, array('_route' => 'site_scenario_view')), array (  '_controller' => 'SiteBundle\\Controller\\DefaultController::viewAction',));
         }
 

@@ -1,11 +1,14 @@
 <p>
-{{ scenario.id }}
+{{ scenario.pageNumber }}
 <br/>
 {{ scenario.title }}
 <br/>
 {{ scenario.content }}
 <br/>
+<a href="{{ path('site_scenario_view', {'pageNumber': scenario.choice1}) }}">Lien</a>
 {{ scenario.choice1 }}
 <br/>
-{{ scenario.choice2 }}
+{% if scenario.choice2 is not null%}
+	{{ scenario.choice2 }}
+{% endif %}
 </p>

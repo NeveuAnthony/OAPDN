@@ -7,6 +7,6 @@ site_homepage:
     defaults: { _controller: SiteBundle:Default:index }
 
 site_scenario_view:
-    path: /scenario/{id}
+    path: /scenario/{pageNumber}
     defaults: { _controller: SiteBundle:Default:view }
 
