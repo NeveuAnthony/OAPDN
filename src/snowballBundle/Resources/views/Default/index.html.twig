@@ -14,9 +14,19 @@
                         {% if listBoxes[0].x == i and listBoxes[0].y == j %}
                             <image src="{{ asset('boxes/player.png') }}"></image>
                         {% elseif listBoxes[1].x == i and listBoxes[1].y == j %}
-                            <image src="{{ asset('boxes/snow-s.png') }}"></image>
+                            {% if listBoxes[3].x == i and listBoxes[3].y == j %}
+                                {% if listBoxes[2].x == i and listBoxes[2].y == j %}
+                                    <image src="{{ asset('boxes/snow-lms.png') }}">
+                                {% endif %}
+                            {% else %}
+                                <image src="{{ asset('boxes/snow-s.png') }}"></image>
+                            {% endif %}
                         {% elseif listBoxes[2].x == i and listBoxes[2].y == j %}
-                            <image src="{{ asset('boxes/snow-m.png') }}"></image>
+                            {% if listBoxes[3].x == i and listBoxes[3].y == j %}
+                                <image src="{{ asset('boxes/snow-lm.png') }}"></image>
+                            {% else %}
+                                <image src="{{ asset('boxes/snow-m.png') }}"></image>
+                            {% endif %}
                         {% elseif listBoxes[3].x == i and listBoxes[3].y == j %}
                             <image src="{{ asset('boxes/snow-l.png') }}"></image>
                         {% else %}
