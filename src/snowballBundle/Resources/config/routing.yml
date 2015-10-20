@@ -1,0 +1,15 @@
+snowball_homepage:
+    path:     /
+    defaults: { _controller: snowballBundle:Default:index }
+
+snowball_create_elements:
+    path:     /create/elements
+    defaults: { _controller: snowballBundle:Default:createElements }
+
+snowball_move:
+    path:     /move/{direction}
+    defaults: { _controller: snowballBundle:Default:move }
+
+snowball_create_player:
+    path:     /create/player
+    defaults: { _controller: snowballBundle:Default:createPlayer }

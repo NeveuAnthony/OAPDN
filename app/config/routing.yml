@@ -5,3 +5,7 @@ site:
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
+
+snowball:
+    resource: "@snowballBundle/Resources/config/routing.yml"
+    prefix:  /snowball

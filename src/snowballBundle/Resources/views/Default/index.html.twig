@@ -1,0 +1,53 @@
+{%  extends('::base.html.twig') %}
+
+{% block body %}
+
+    <ul class="grid">
+        {% set n = 0 %}
+        {% set y = grid.cols %}
+        {% for i in 0..y %}
+            <ul class="cols">
+                {% set x = grid.raws %}
+                {% for j in 0..x %}
+                    <li>
+                        <!--<img src={asset('uploads/logo/~company.getCompanyLogo)"></img> -->
+                        {% if listBoxes[0].x == i and listBoxes[0].y == j %}
+                            <image src="{{ asset('boxes/player.png') }}"></image>
+                        {% elseif listBoxes[1].x == i and listBoxes[1].y == j %}
+                            <image src="{{ asset('boxes/snow-s.png') }}"></image>
+                        {% elseif listBoxes[2].x == i and listBoxes[2].y == j %}
+                            <image src="{{ asset('boxes/snow-m.png') }}"></image>
+                        {% elseif listBoxes[3].x == i and listBoxes[3].y == j %}
+                            <image src="{{ asset('boxes/snow-l.png') }}"></image>
+                        {% else %}
+                            <image src="{{ asset('boxes/grass.png') }}"></image>
+                        {% endif %}
+
+                    </li>
+                    {% set n = n+1 %}
+                {% endfor %}
+            </ul>
+        {% endfor %}
+    </ul>
+    <hr/>
+    {% include('snowballBundle:Default:HUD.html.twig') %}
+{% endblock %}
+
+{% block style %}
+    <style>
+        ul,li {
+            list-style-type : none;
+        }
+
+        .cols{
+            display: inline-block;
+            margin:0px;
+            padding:0px;
+        }
+
+        .grid{
+            text-align:center;
+        }
+
+    </style>
+{% endblock %}

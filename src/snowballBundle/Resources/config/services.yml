@@ -1,0 +1,4 @@
+services:
+#    snowball.example:
+#        class: snowballBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

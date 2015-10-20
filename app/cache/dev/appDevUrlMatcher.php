@@ -138,7 +138,7 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         }
 
         // site_scenario_view
-        if (0 === strpos($pathinfo, '/scenario') && preg_match('#^/scenario/(?P<pageNumber>[^/]++)$#s', $pathinfo, $matches)) {
+        if (0 === strpos($pathinfo, '/scenario') && preg_match('#^/scenario/(?P<pageNumber>\\d+)$#s', $pathinfo, $matches)) {
             return $this->mergeDefaults(array_replace($matches, array('_route' => 'site_scenario_view')), array (  '_controller' => 'SiteBundle\\Controller\\DefaultController::viewAction',));
         }
 
@@ -149,6 +149,33 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             }
 
             return array (  '_controller' => 'AppBundle\\Controller\\DefaultController::indexAction',  '_route' => 'homepage',);
+        }
+
+        if (0 === strpos($pathinfo, '/snowball')) {
+            // snowball_homepage
+            if (rtrim($pathinfo, '/') === '/snowball') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'snowball_homepage');
+                }
+
+                return array (  '_controller' => 'snowballBundle\\Controller\\DefaultController::indexAction',  '_route' => 'snowball_homepage',);
+            }
+
+            // snowball_create_elements
+            if ($pathinfo === '/snowball/create/elements') {
+                return array (  '_controller' => 'snowballBundle\\Controller\\DefaultController::createElementsAction',  '_route' => 'snowball_create_elements',);
+            }
+
+            // snowball_move
+            if (0 === strpos($pathinfo, '/snowball/move') && preg_match('#^/snowball/move/(?P<direction>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'snowball_move')), array (  '_controller' => 'snowballBundle\\Controller\\DefaultController::moveAction',));
+            }
+
+            // snowball_create_player
+            if ($pathinfo === '/snowball/create/player') {
+                return array (  '_controller' => 'snowballBundle\\Controller\\DefaultController::createPlayerAction',  '_route' => 'snowball_create_player',);
+            }
+
         }
 
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();
